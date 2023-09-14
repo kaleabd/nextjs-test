@@ -11,7 +11,7 @@ export default function Home() {
           <h2 className="text-3xl font-extrabold tracking-tight text-blue-900 sm:text-4xl">
             <span className="block dark:text-blue-50">Ready to dive in?</span>
             <span className="block text-blue-600">
-              Start your free trial today.
+              buy products with 50% less prices here
             </span>
           </h2>
           <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">
