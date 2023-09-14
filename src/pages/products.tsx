@@ -30,7 +30,7 @@ const Products = () => {
       {loading ? (
         <h2>Loading...</h2>
       ) : (
-        <div className="grid grid-cols-4    ">
+        <div className="grid grid-cols-1 md:grid-cols-4    ">
           {productArray.map((product: any) => (
             <ProductCard key={product.id} product={product} />
           ))}
