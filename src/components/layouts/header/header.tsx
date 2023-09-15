@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Logo from "./logo";
 import Navigation from "./navigation";
 import { useSelector, useDispatch } from "react-redux";
 import { setSearchValue } from "../../redux/slices/navbarSlice";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 const Header = () => {
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState<boolean>(false);
@@ -26,7 +26,9 @@ const Header = () => {
         <div className="container mx-auto ">
           <div className="flex flex-wrap items-center justify-between py-4 mx-auto gap-4">
             <div className="flex-none z-10	">
-              <Logo />
+              <Link href="/">
+              <h3 className=" text-xl font-bold">Gulit-Gebeya</h3>
+              </Link>
             </div>
             <div className=" flex items-center text-md ">
               <input

@@ -44,13 +44,15 @@ const Checkout: React.FC = () => {
               className="mb-4 border-b border-gray-200 pb-4 flex justify-between items-center"
             >
               <span className="text-lg font-semibold">{item.title}</span>
-              <span>${item.price}</span>
-              <button
-                onClick={() => handleRemoveItem(item.id)}
-                className="text-red-500 hover:text-red-700 focus:outline-none"
-              >
-                Remove
-              </button>
+              <div className="flex items-center gap-5">
+                <span>${item.price}</span>
+                <button
+                  onClick={() => handleRemoveItem(item.id)}
+                  className="bg-red-500 hover:bg-red-700 text-white rounded-md px-4 py-2 focus:outline-none"
+                >
+                  Remove
+                </button>
+              </div>
             </li>
           ))}
         </ul>
