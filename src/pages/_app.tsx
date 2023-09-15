@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
         <section
           className={
-            loading === true ? "dark:animate-none animate-Loading " : ""
+            loading === true ? "bg-dark animate-pulse " : ""
           }
         >
           <Component {...pageProps} />
