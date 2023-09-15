@@ -25,6 +25,12 @@ const Checkout: React.FC = () => {
     dispatch(removeFromCart(itemId));
   };
 
+  // Calculate the total price
+  const totalPrice = cartItems.items.reduce(
+    (total, item) => total + item.price,
+    0
+  );
+
   return (
     <div className="p-4">
       <h2 className="text-2xl font-semibold mb-4">Checkout</h2>
@@ -51,6 +57,10 @@ const Checkout: React.FC = () => {
       )}
       {cartItems.items.length > 0 && (
         <>
+          <div className="flex justify-between items-center mb-4">
+            <span className="text-lg font-semibold">Total:</span>
+            <span>${totalPrice.toFixed(2)}</span>
+          </div>
           <button
             onClick={handleFinish}
             className="mt-4 w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none"
