@@ -40,7 +40,7 @@ const Products = () => {
         <div>
           {searchValue && (
             <h1 className="text-xl font-bold w-11/12 mx-auto my-10">
-              {`Results for &quot;${searchValue}&quot;`}
+              {`Results for " ${searchValue} "`}
             </h1>
           )}
 
