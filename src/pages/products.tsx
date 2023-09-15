@@ -38,7 +38,12 @@ const Products = () => {
         <h2>Loading...</h2>
       ) : (
         <div>
-          {searchValue && (<h1 className="text-xl font-bold w-11/12 mx-auto my-10">{`Results for "${searchValue}"`}</h1>)}
+          {searchValue && (
+            <h1 className="text-xl font-bold w-11/12 mx-auto my-10">
+              {`Results for &quot;${searchValue}&quot;`}
+            </h1>
+          )}
+
           <div className="grid grid-cols-1 md:grid-cols-4    ">
             {finalProduct.map((product: any) => (
               <ProductCard key={product.id} product={product} />
