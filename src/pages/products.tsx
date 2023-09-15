@@ -11,7 +11,9 @@ const Products = () => {
   const { products, loading } = useSelector(
     (state: RootState) => state.products
   );
-
+  const searchValue = useSelector(
+    (state: RootState) => state.navbar.searchValue
+  );
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
@@ -25,13 +27,18 @@ const Products = () => {
   }, [dispatch]);
 
   const productArray = Object.values(products);
+
+  const filteredProducts = productArray.filter((product) =>
+    product.title.toLowerCase().includes(searchValue.toLowerCase())
+  );
+  const finalProduct = searchValue ? filteredProducts : productArray;
   return (
     <div>
       {loading ? (
         <h2>Loading...</h2>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-4    ">
-          {productArray.map((product: any) => (
+          {finalProduct.map((product: any) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>

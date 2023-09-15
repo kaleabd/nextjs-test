@@ -1,11 +1,24 @@
 import React, { useState } from "react";
 import Logo from "./logo";
 import Navigation from "./navigation";
+import { useSelector, useDispatch } from "react-redux";
+import { setSearchValue } from "../../redux/slices/navbarSlice";
+import { useRouter } from "next/router";
 
 const Header = () => {
-  // let clicked = "clicked";
-  // const [classes, setClasses] = useState<string>("clicked")
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState<boolean>(false);
+  const searchValue = useSelector((state: any) => state.navbar.searchValue);
+  const dispatch = useDispatch();
+  const router = useRouter();
+
+  const handleSearchChange = (event: any) => {
+    const newValue = event.target.value;
+    dispatch(setSearchValue(newValue));
+  };
+
+  const handleSearchClick = () => {
+    router.push("/products");
+  };
 
   return (
     <>
@@ -15,7 +28,16 @@ const Header = () => {
             <div className="flex-none z-10	">
               <Logo />
             </div>
-
+            <div className=" flex items-center text-md ">
+              <input
+                type="text"
+                value={searchValue}
+                className="w-[85%] md:w-[400px] rounded-md pl-10 py-[.5rem] outline-none bg-[#F6F6F6] placeholder-[#727272]"
+                placeholder="Search products..."
+                onClick={handleSearchClick}
+                onChange={handleSearchChange}
+              />
+            </div>
             <div
               className="flex-none  gap-4 lg:hidden"
               onClick={() => setMobileMenuIsOpen(!mobileMenuIsOpen)}
