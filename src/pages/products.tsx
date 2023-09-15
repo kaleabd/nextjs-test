@@ -33,7 +33,7 @@ const Products = () => {
   );
   const finalProduct = searchValue ? filteredProducts : productArray;
   return (
-    <div>
+    <div className="h-auto">
       {loading ? (
         <h2>Loading...</h2>
       ) : (

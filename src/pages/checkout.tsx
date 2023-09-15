@@ -32,7 +32,7 @@ const Checkout: React.FC = () => {
   );
 
   return (
-    <div className="p-4">
+    <div className="p-4 h-screen">
       <h2 className="text-2xl font-semibold mb-4">Checkout</h2>
       {cartItems.items.length === 0 ? (
         <p className="text-gray-600">Your cart is empty.</p>
