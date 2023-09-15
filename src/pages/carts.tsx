@@ -5,6 +5,7 @@ import {
   removeFromCart,
   clearCart,
 } from "../components/redux/slices/cartSlice";
+import Link from "next/link";
 
 const Cart: React.FC = () => {
   const cartItems = useSelector(selectCartItems);
@@ -26,7 +27,7 @@ const Cart: React.FC = () => {
   };
 
   return (
-    <div className="p-4">
+    <div className="p-4 h-screen">
       <h2 className="text-2xl font-semibold mb-4">Your Shopping Cart</h2>
       {cartItemsArray.length === 0 ? (
         <p className="text-gray-600">Your cart is empty.</p>
@@ -48,12 +49,19 @@ const Cart: React.FC = () => {
         </ul>
       )}
       {cartItemsArray.length > 0 && (
-        <button
-          onClick={handleClearCart}
-          className="mt-4 bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 focus:outline-none"
-        >
-          Clear Cart
-        </button>
+        <div>
+          <button
+            onClick={handleClearCart}
+            className="mt-4 bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 focus:outline-none"
+          >
+            Clear Cart
+          </button>
+          <Link href="/checkout">
+            <a className="block mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none text-center">
+              Checkout
+            </a>
+          </Link>
+        </div>
       )}
     </div>
   );
